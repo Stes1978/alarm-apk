@@ -7,5 +7,11 @@
   "scope": "/",
   "short_name": "stes1978.github",
   "start_url": "/",
-  "theme_color": "#ffffff"
+  "theme_color": "#098ca5",
+  "id": "1",
+  "description": "будильник",
+  "lang": "ru",
+  "categories": [
+    "education"
+  ]
 }
