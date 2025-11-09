@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <!-- РЈРќРР’Р•Р РЎРђР›Р¬РќРђРЇ РљРћР”РР РћР’РљРђ -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Таймер</title>
+    <title>РўР°Р№РјРµСЂ</title>
     <style>
         body {
             margin: 0;
@@ -91,7 +92,6 @@
             50% { opacity: 0.5; }
         }
         
-        /* Стили для компактного будильника */
         .alarm-container {
             position: fixed;
             bottom: 20px;
@@ -142,32 +142,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>Таймер</h1>
+        <h1>РўР°Р№РјРµСЂ</h1>
         <div class="input-group">
-            <label for="minutes">Мин:</label>
+            <label for="minutes">РњРёРЅ:</label>
             <input type="number" id="minutes" value="5" min="1">
         </div>
         <div class="button-group">
-            <button onclick="startTimer()">Старт</button>
-            <button onclick="pauseTimer()">Пауза</button>
-            <button onclick="resetTimer()">Сброс</button>
+            <button onclick="startTimer()">РЎС‚Р°СЂС‚</button>
+            <button onclick="pauseTimer()">РџР°СѓР·Р°</button>
+            <button onclick="resetTimer()">РЎР±СЂРѕСЃ</button>
         </div>
         <div id="display">--:--</div>
     </div>
 
-    <!-- Отдельный контейнер для будильника -->
     <div class="alarm-container" id="alarmContainer" style="display: none;">
-        <div class="alarm-title">БУДИЛЬНИК</div>
+        <div class="alarm-title">Р‘РЈР”РР›Р¬РќРРљ</div>
         <div class="alarm-display" id="alarmDisplay">00:00</div>
         <div class="alarm-controls">
-            <button onclick="stopAlarm()">Выкл</button>
+            <button onclick="stopAlarm()">Р’С‹РєР»</button>
         </div>
     </div>
 
     <audio id="alarm" loop>
         <source src="alarm.mp3" type="audio/mpeg">
         <source src="alarm.wav" type="audio/wav">
-        Ваш браузер не поддерживает аудио элементы.
+        Р’Р°С€ Р±СЂР°СѓР·РµСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ Р°СѓРґРёРѕ СЌР»РµРјРµРЅС‚С‹.
     </audio>
 
     <script>
@@ -176,7 +175,6 @@
         let isRunning = false;
         let alarmPlayed = false;
 
-        // Получаем элементы
         const display = document.getElementById('display');
         const alarmSound = document.getElementById('alarm');
         const minutesInput = document.getElementById('minutes');
@@ -188,11 +186,10 @@
             
             const minutes = parseInt(minutesInput.value);
             if (isNaN(minutes) || minutes <= 0) {
-                alert('Введите корректное количество минут!');
+                alert('Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚!');
                 return;
             }
             
-            // Сброс состояния тревоги
             alarmPlayed = false;
             alarmSound.pause();
             alarmSound.currentTime = 0;
@@ -246,17 +243,13 @@
         function timeUp() {
             display.textContent = '00:00';
             display.classList.add('time-up');
-            
-            // Показываем будильник в правом нижнем углу
             showAlarm();
             
-            // Немедленно запускаем звук сигнала
             if (!alarmPlayed) {
                 playAlarm();
                 alarmPlayed = true;
             }
             
-            // Добавляем вибрацию если доступно
             if (navigator.vibrate) {
                 navigator.vibrate([500, 200, 500, 200, 500]);
             }
@@ -277,26 +270,20 @@
         }
 
         function playAlarm() {
-            // Сбрасываем звук на начало и запускаем
             alarmSound.currentTime = 0;
-            
-            // Пытаемся воспроизвести звук
             const playPromise = alarmSound.play();
             
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    console.log('Сигнал запущен автоматически');
+                    console.log('РЎРёРіРЅР°Р» Р·Р°РїСѓС‰РµРЅ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё');
                 }).catch(error => {
-                    console.log('Автоматическое воспроизведение заблокировано:', error);
-                    // Показываем уведомление
-                    alert('Нажмите кнопку "Вкл" на будильнике для звука');
+                    console.log('РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРѕ:', error);
+                    alert('РќР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ "Р’С‹РєР»" РЅР° Р±СѓРґРёР»СЊРЅРёРєРµ РґР»СЏ Р·РІСѓРєР°');
                 });
             }
         }
 
-        // Обработчики для кнопок (для совместимости с разными браузерами)
         document.addEventListener('DOMContentLoaded', function() {
-            // Предзагрузка звука
             alarmSound.load();
         });
     </script>
