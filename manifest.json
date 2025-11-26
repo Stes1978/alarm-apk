@@ -1,20 +1,15 @@
 {
-  "short_name": "MDN",
-  "name": "MDN Web Docs",
-  "icons": [
-    {
-      "src": "/favicon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "start_url": ".",
+  "background_color": "#ffffff",
+  "dir": "auto",
   "display": "standalone",
-  "theme_color": "black",
-  "background_color": "white"
+  "name": "stes1978.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "stes1978.github",
+  "start_url": "https://stes1978.github.io/alarm-apk/»  ",
+  "theme_color": "#ffffff",
+  "lang": "ru",
+  "display_override": [
+    "window-controls-overlay"
+  ]
 }
