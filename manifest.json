@@ -1,15 +1,11 @@
 {
   "background_color": "#ffffff",
-  "dir": "auto",
+  "dir": "ltr",
   "display": "standalone",
   "name": "stes1978.github",
   "orientation": "any",
   "scope": "/",
   "short_name": "stes1978.github",
   "start_url": "https://stes1978.github.io/alarm-apk/»  ",
-  "theme_color": "#ffffff",
-  "lang": "ru",
-  "display_override": [
-    "window-controls-overlay"
-  ]
+  "theme_color": "#ffffff"
 }
