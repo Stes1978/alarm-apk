@@ -2,10 +2,10 @@
   "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
-  "name": "Alarm_Stes-1",
+  "name": "stes1978.github",
   "orientation": "any",
   "scope": "/",
-  "short_name": "Alarm_Stes",
-  "start_url": "https://stes1978.github.io/alarm-apk",
+  "short_name": "stes1978.github",
+  "start_url": "/",
   "theme_color": "#ffffff"
 }
