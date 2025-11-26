@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- РЈРќРР’Р•Р РЎРђР›Р¬РќРђРЇ РљРћР”РР РћР’РљРђ -->
+    <!-- УНИВЕРСАЛЬНАЯ КОДИРОВКА -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>РўР°Р№РјРµСЂ</title>
+    <title>Таймер</title>
     <style>
         body {
             margin: 0;
@@ -142,31 +142,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>РўР°Р№РјРµСЂ</h1>
+        <h1>Таймер</h1>
         <div class="input-group">
-            <label for="minutes">РњРёРЅ:</label>
+            <label for="minutes">Мин:</label>
             <input type="number" id="minutes" value="5" min="1">
         </div>
         <div class="button-group">
-            <button onclick="startTimer()">РЎС‚Р°СЂС‚</button>
-            <button onclick="pauseTimer()">РџР°СѓР·Р°</button>
-            <button onclick="resetTimer()">РЎР±СЂРѕСЃ</button>
+            <button onclick="startTimer()">Старт</button>
+            <button onclick="pauseTimer()">Пауза</button>
+            <button onclick="resetTimer()">Сброс</button>
         </div>
         <div id="display">--:--</div>
     </div>
 
     <div class="alarm-container" id="alarmContainer" style="display: none;">
-        <div class="alarm-title">Р‘РЈР”РР›Р¬РќРРљ</div>
+        <div class="alarm-title">БУДИЛЬНИК</div>
         <div class="alarm-display" id="alarmDisplay">00:00</div>
         <div class="alarm-controls">
-            <button onclick="stopAlarm()">Р’С‹РєР»</button>
+            <button onclick="stopAlarm()">Выкл</button>
         </div>
     </div>
 
     <audio id="alarm" loop>
         <source src="alarm.mp3" type="audio/mpeg">
         <source src="alarm.wav" type="audio/wav">
-        Р’Р°С€ Р±СЂР°СѓР·РµСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ Р°СѓРґРёРѕ СЌР»РµРјРµРЅС‚С‹.
+        Ваш браузер не поддерживает аудио элементы.
     </audio>
 
     <script>
@@ -186,7 +186,7 @@
             
             const minutes = parseInt(minutesInput.value);
             if (isNaN(minutes) || minutes <= 0) {
-                alert('Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚!');
+                alert('Введите корректное количество минут!');
                 return;
             }
             
@@ -275,10 +275,10 @@
             
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    console.log('РЎРёРіРЅР°Р» Р·Р°РїСѓС‰РµРЅ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё');
+                    console.log('Сигнал запущен автоматически');
                 }).catch(error => {
-                    console.log('РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРѕ:', error);
-                    alert('РќР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ "Р’С‹РєР»" РЅР° Р±СѓРґРёР»СЊРЅРёРєРµ РґР»СЏ Р·РІСѓРєР°');
+                    console.log('Автоматическое воспроизведение заблокировано:', error);
+                    alert('Нажмите кнопку "Выкл" на будильнике для звука');
                 });
             }
         }
